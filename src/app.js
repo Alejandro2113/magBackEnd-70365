@@ -1,8 +1,8 @@
 import express from "express";
 import paths from "./utils/paths.js";
 
-import routerProducts from "./routes/products.router.js";
-import routeCart from "./routes/cart.router.js";
+import routerProducts from "./routers/products.router.js";
+import routeCart from "./routers/cart.router.js";
 
 // Se crea una instancia de la aplicación Express
 const app = express();
@@ -19,8 +19,6 @@ app.use(express.urlencoded({ extended: true }));
 
 // Middleware para acceder al contenido JSON de las solicitudes
 app.use(express.json());
-
-app.use("api/public", express.static(paths.public));
 
 // Declaración de rutas
 app.use("/api/products", routerProducts);

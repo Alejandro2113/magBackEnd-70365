@@ -3,13 +3,13 @@ import ProductManager from "../managers/ProductsManager.js";
 import uploader from "../utils/uploader.js";
 
 const router = Router();
-const ProductManager = new ProductManager();
+const productManager = new ProductManager();
 
-// Ruta para obtener los ingredientes
+// Ruta para obtener los productos
 router.get("/", async (req, res) => {
   try {
-    const ingredients = await ProductManager.getAll(req.query);
-    res.status(200).json({ status: "success", payload: ingredients });
+    const product = await productManager.getAll(req.query);
+    res.status(200).json({ status: "success", payload: product });
   } catch (error) {
     res
       .status(error.code || 500)
@@ -17,11 +17,11 @@ router.get("/", async (req, res) => {
   }
 });
 
-// Ruta para obtener un ingrediente por su ID
+// Ruta para obtener un producto por su ID
 router.get("/:id", async (req, res) => {
   try {
-    const ingredient = await ProductManager.getOneById(req.params.id);
-    res.status(200).json({ status: "success", payload: ingredient });
+    const product = await productManager.getOneById(req.params.id);
+    res.status(200).json({ status: "success", payload: product });
   } catch (error) {
     res
       .status(error.code || 500)
@@ -29,11 +29,11 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-// Ruta para crear un ingrediente, permite la subida de imágenes
+// Ruta para crear un producto, permite la subida de imágenes
 router.post("/", uploader.single("file"), async (req, res) => {
   try {
-    const ingredient = await ProductManager.insertOne(req.body, req.file);
-    res.status(201).json({ status: "success", payload: ingredient });
+    const product = await productManager.insertOne(req.body, req.file);
+    res.status(201).json({ status: "success", payload: product });
   } catch (error) {
     res
       .status(error.code || 500)
@@ -41,15 +41,15 @@ router.post("/", uploader.single("file"), async (req, res) => {
   }
 });
 
-// Ruta para actualizar un ingrediente por su ID, permite la subida de imágenes
+// Ruta para actualizar un producto por su ID, permite la subida de imágenes
 router.put("/:id", uploader.single("file"), async (req, res) => {
   try {
-    const ingredient = await ProductManager.updateOneById(
+    const product = await productManager.updateOneById(
       req.params.id,
       req.body,
       req.file
     );
-    res.status(200).json({ status: "success", payload: ingredient });
+    res.status(200).json({ status: "success", payload: product });
   } catch (error) {
     res
       .status(error.code || 500)
@@ -57,10 +57,10 @@ router.put("/:id", uploader.single("file"), async (req, res) => {
   }
 });
 
-// Ruta para eliminar un ingrediente por su ID
+// Ruta para eliminar un producto por su ID
 router.delete("/:id", async (req, res) => {
   try {
-    await ProductManager.deleteOneById(req.params.id);
+    await productManager.deleteOneById(req.params.id);
     res.status(200).json({ status: "success" });
   } catch (error) {
     res

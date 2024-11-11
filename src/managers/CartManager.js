@@ -11,7 +11,7 @@ export default class RecipeManager {
     this.#jsonFilename = "cart.json";
   }
 
-  // Busca un receta por su ID
+  // Busca un carrito por su ID
   async #findOneById(id) {
     this.#cart = await this.getAll();
     const cartFound = this.#cart.find((item) => item.id === Number(id));
@@ -23,7 +23,7 @@ export default class RecipeManager {
     return cartFound;
   }
 
-  // Obtiene una lista de recetas
+  // Obtiene una lista de carritos
   async getAll() {
     try {
       this.#cart = await readJsonFile(paths.files, this.#jsonFilename);
@@ -33,7 +33,7 @@ export default class RecipeManager {
     }
   }
 
-  // Obtiene un receta específica por su ID
+  // Obtiene un carrito específica por su ID
   async getOneById(id) {
     try {
       const cartFound = await this.#findOneById(id);
@@ -43,11 +43,11 @@ export default class RecipeManager {
     }
   }
 
-  // Inserta un receta
+  // Inserta un producto
   async insertOne(data) {
     try {
-      const products = data?.ingredients?.map((item) => {
-        return { ingredient: Number(item.ingredient), quantity: 1 };
+      const products = data?.products?.map((item) => {
+        return { product: Number(item.product), quantity: 1 };
       });
 
       const cart = {
@@ -64,18 +64,18 @@ export default class RecipeManager {
     }
   }
 
-  // Agrega un ingrediente a una receta o incrementa la cantidad de un ingrediente existente
+  // Agrega un producto a un carrito o incrementa la cantidad de un ingrediente existente
   addOneproduct = async (id, productId) => {
     try {
       const cartFound = await this.#findOneById(id);
-      const productIndex = cartFound.ingredients.findIndex(
+      const productIndex = cartFound.products.findIndex(
         (item) => item.product === Number(productId)
       );
 
       if (productIndex >= 0) {
-        cartFound.ingredients[productIndex].quantity++;
+        cartFound.products[productIndex].quantity++;
       } else {
-        cartFound.ingredients.push({ product: Number(productId), quantity: 1 });
+        cartFound.products.push({ product: Number(productId), quantity: 1 });
       }
 
       const index = this.#cart.findIndex((item) => item.id === Number(id));
