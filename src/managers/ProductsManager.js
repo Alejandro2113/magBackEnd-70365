@@ -47,7 +47,7 @@ export default class ProductManager {
     }
   }
 
-  // Inserta un ingrediente
+  // Inserta un producto
   async insertOne(data, file) {
     try {
       const { title, status, stock } = data;
@@ -78,7 +78,7 @@ export default class ProductManager {
     }
   }
 
-  // Actualiza un ingrediente en específico
+  // Actualiza un producto en específico
   async updateOneById(id, data, file) {
     try {
       const { title, status, stock } = data;
@@ -109,12 +109,12 @@ export default class ProductManager {
     }
   }
 
-  // Elimina un ingrediente en específico
+  // Elimina un producto en específico
   async deleteOneById(id) {
     try {
       const productFound = await this.#findOneById(id);
 
-      // Si tiene thumbnail definido, entonces, elimina la imagen del ingrediente
+      // Si tiene thumbnail definido, entonces, elimina la imagen del producto
       if (productFound.thumbnail) {
         await deleteFile(paths.images, productFound.thumbnail);
       }

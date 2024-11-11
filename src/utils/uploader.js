@@ -3,7 +3,6 @@ import paths from "./paths.js";
 
 import { generateNameForFile } from "./random.js";
 
-// Configuración del almacenamiento para multer
 const storage = multer.diskStorage({
   // Define el destino para almacenar los archivos subidos
   destination: (req, file, callback) => {
