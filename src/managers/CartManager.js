@@ -65,7 +65,7 @@ export default class RecipeManager {
   }
 
   // Agrega un producto a un carrito o incrementa la cantidad de un ingrediente existente
-  addOneproduct = async (id, productId) => {
+  addOneProduct = async (id, productId) => {
     try {
       const cartFound = await this.#findOneById(id);
       const productIndex = cartFound.products.findIndex(
