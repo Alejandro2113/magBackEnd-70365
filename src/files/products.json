@@ -1,16 +1,46 @@
 [
 	{
 		"id": 1,
-		"title": "Producto de prueba A",
+		"title": "iPAD 11 PRO",
 		"status": false,
 		"stock": 3,
 		"thumbnail": "ipadpro11.jpeg"
 	},
 	{
 		"id": 2,
-		"title": "Producto de prueba B",
+		"title": "iPHONE 16 PRO",
 		"status": true,
 		"stock": 2,
+		"thumbnail": "iphone16pro.jpeg"
+	},
+	{
+		"id": 3,
+		"title": "Imac m4",
+		"status": true,
+		"stock": 10,
+		"thumbnail": "iphone16pro.jpeg"
+	},
+	{
+		"id": 4,
+		"title": "Imac m4 Pro",
+		"status": true,
+		"stock": 12,
+		"thumbnail": "iphone16pro.jpeg"
+	}
+	,
+	{
+		"id": 5,
+		"title": "MacBook M4 14",
+		"status": true,
+		"stock": 10,
+		"thumbnail": "iphone16pro.jpeg"
+	}
+	,
+	{
+		"id": 6,
+		"title": "MacBook M4 16",
+		"status": true,
+		"stock": 8,
 		"thumbnail": "iphone16pro.jpeg"
 	}
 ]
