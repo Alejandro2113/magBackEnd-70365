@@ -1,7 +1,7 @@
 import { Server } from "socket.io";
-import ProductsManager from "../managers/ProductsManager.js";
+import ProductManager from "../managers/ProductsManager.js";
 
-const ProductManager = new ProductsManager();
+const productManager = new ProductManager();
 
 // Configura el servidor Socket.IO
 export const config = (httpServer) => {
@@ -13,17 +13,17 @@ export const config = (httpServer) => {
     console.log("Conexión establecida ok", socket.id);
 
     // Envía la lista de ingredientes al conectarse
-    socketServer.emit("Products-list", {
-      products: await ProductManager.getAll(),
+    socketServer.emit("products-list", {
+      products: await productManager.getAll(),
     });
 
-    socket.on("insert-Product", async (data) => {
+    socket.on("insert-product", async (data) => {
       try {
-        await ProductManager.insertOne(data);
+        await productManager.insertOne(data);
 
         // Envía la lista de productos actualizada después de insertar
         socketServer.emit("products-list", {
-          products: await ProductManager.getAll(),
+          products: await productManager.getAll(),
         });
       } catch (error) {
         // Envía el mensaje de error
@@ -31,13 +31,13 @@ export const config = (httpServer) => {
       }
     });
 
-    socket.on("delete-Product", async (data) => {
+    socket.on("delete-product", async (data) => {
       try {
-        await ProductManager.deleteOneById(Number(data.id));
+        await productManager.deleteOneById(Number(data.id));
 
         // Envía la lista de productos actualizada después de insertar
         socketServer.emit("products-list", {
-          products: await ProductManager.getAll(),
+          products: await productManager.getAll(),
         });
       } catch (error) {
         // Envía el mensaje de error

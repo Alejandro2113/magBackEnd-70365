@@ -26,21 +26,61 @@
 		"status": true,
 		"stock": 12,
 		"thumbnail": "iphone16pro.jpeg"
-	}
-	,
+	},
 	{
 		"id": 5,
-		"title": "MacBook M4 14",
-		"status": true,
-		"stock": 10,
-		"thumbnail": "iphone16pro.jpeg"
-	}
-	,
+		"title": "Ipad Pro m4",
+		"status": false,
+		"stock": 9,
+		"thumbnail": "Na"
+	},
 	{
 		"id": 6,
-		"title": "MacBook M4 16",
+		"title": "Ipad Pro m4 512gb",
 		"status": true,
-		"stock": 8,
-		"thumbnail": "iphone16pro.jpeg"
+		"stock": 9,
+		"thumbnail": "Na"
+	},
+	{
+		"id": 7,
+		"title": "Macbook M4 pro Baseline",
+		"status": true,
+		"stock": 10,
+		"thumbnail": "Na"
+	},
+	{
+		"id": 8,
+		"title": "Ipad 10 gen 128gb",
+		"status": true,
+		"stock": 19,
+		"thumbnail": "Na"
+	},
+	{
+		"id": 9,
+		"title": "Ipad Pro m4 1tb",
+		"status": false,
+		"stock": 4,
+		"thumbnail": "Na"
+	},
+	{
+		"id": 10,
+		"title": "Iphone 16 pro max 256gb",
+		"status": true,
+		"stock": 20,
+		"thumbnail": "Na"
+	},
+	{
+		"id": 11,
+		"title": "Macbook Pro M4 Max 36gb",
+		"status": true,
+		"stock": 5,
+		"thumbnail": "Na"
+	},
+	{
+		"id": 12,
+		"title": "Test 04",
+		"status": true,
+		"stock": 20,
+		"thumbnail": "Na"
 	}
 ]

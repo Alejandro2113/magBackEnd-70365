@@ -3,12 +3,13 @@ const socket = io();
 const productsList = document.getElementById("products-list");
 const productsForm = document.getElementById("products-form");
 const inputProductId = document.getElementById("input-product-id");
-const btnDeleteProduct = document.getElementById("btn-delete-Product");
+const btnDeleteProduct = document.getElementById("btn-delete-product");
 const errorMessage = document.getElementById("error-message");
 
 socket.on("products-list", (data) => {
   const products = data.products ?? [];
   productsList.innerText = "";
+  console.log("Servidor conectado");
 
   products.forEach((product) => {
     productsList.innerHTML += `<li>Id: ${product.id}<br /> - Nombre: ${product.title}<br /> - Cantidad: ${product.stock}</li>`;

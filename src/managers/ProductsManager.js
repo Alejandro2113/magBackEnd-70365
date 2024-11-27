@@ -56,16 +56,12 @@ export default class ProductManager {
         throw new ErrorManager("Faltan datos obligatorios", 400);
       }
 
-      if (!file?.filename) {
-        throw new ErrorManager("Falta el archivo de la imagen", 400);
-      }
-
       const product = {
         id: generateId(await this.getAll()),
         title,
         status: convertToBoolean(status),
         stock: Number(stock),
-        thumbnail: file?.filename,
+        thumbnail: file?.filename ?? "Na",
       };
 
       this.#products.push(product);
