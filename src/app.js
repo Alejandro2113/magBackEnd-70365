@@ -1,5 +1,6 @@
 import express from "express";
 import paths from "./utils/paths.js";
+import { connectDB } from "./config/mongoose.config.js";
 import { config as configHandlebars } from "./config/handlebars.config.js";
 import { config as configWebsocket } from "./config/websocket.config.js";
 
@@ -9,6 +10,9 @@ import routerViewHome from "./routers/home.view.router.js";
 
 // Se crea una instancia de la aplicación Express
 const app = express();
+
+//Coneccion a MongoDB
+connectDB();
 
 // Se define el puerto en el que el servidor escuchará las solicitudes
 const PORT = 8080;
